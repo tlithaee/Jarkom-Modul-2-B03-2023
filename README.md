@@ -154,16 +154,6 @@
         netmask 255.255.255.0
         gateway 10.10.2.1
   ```
-- **Notes of Config**
-  ```
-  Router	: 10.10.1.1 (Switch 1)
-  Yudhistira	: 192.173.2.4
-  Nakula	        : 192.173.1.2
-  Router	: 10.10.2.1 (Switch 2)
-  Werkudara	: 192.173.2.2
-  Sadewa	        : 192.173.2.3
-  Arjuna	        : 192.173.2.2
-  ```
 
 ## Soal 1 
 > Yudhistira akan digunakan sebagai DNS Master, Werkudara sebagai DNS Slave, Arjuna merupakan Load Balancer yang terdiri dari beberapa Web Server yaitu Prabakusuma, Abimanyu, dan Wisanggeni. Buatlah topologi dengan pembagian sebagai berikut. Folder topologi dapat diakses pada drive berikut
