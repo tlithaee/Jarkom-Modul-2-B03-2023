@@ -169,20 +169,21 @@
 > Yudhistira akan digunakan sebagai DNS Master, Werkudara sebagai DNS Slave, Arjuna merupakan Load Balancer yang terdiri dari beberapa Web Server yaitu Prabakusuma, Abimanyu, dan Wisanggeni. Buatlah topologi dengan pembagian sebagai berikut. Folder topologi dapat diakses pada drive berikut
 
 ### Script
-**Yudhistira**
-pada nano `/etc/resolv.conf`
+**Pada semua Node**
+masukkan di dalam .bashrc di root:
 ```
-nameserver 192.168.122.1
+echo nameserver 192.168.122.1 > `/etc/resolv.conf`
 ```
 
 **Nakula**
-pada nano `/etc/resolv.conf`
+Untuk client, nano `/etc/resolv.conf`
 ```
 nameserver 192.168.122.1
 nameserver 10.10.2.4 #IP Yudhistira
 nameserver 10.10.2.3 #IP Werkudara
 ```
 
+Lalu pada semua node, pastikan sudah bisa menjalankan:
 ```
 ping google.com
 ```
