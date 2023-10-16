@@ -191,6 +191,8 @@ ping google.com
 
 ![image](no1/google.png)
 
+**Kendala:** Tidak ada kendala didalam mengerjakan nomor ini.
+
 ## Soal 2 
 > Buatlah website utama dengan akses ke arjuna.yyy.com dengan alias www.arjuna.yyy.com dengan yyy merupakan kode kelompok.
 Config
@@ -252,6 +254,8 @@ ping www.arjuna.B03.com
 ![image]()
 
 
+**Kendala:** Tidak ada kendala didalam mengerjakan nomor ini.
+
 ## Soal 3
 > Dengan cara yang sama seperti soal nomor 2, buatlah website utama dengan akses ke abimanyu.yyy.com dan alias www.abimanyu.yyy.com.
 
@@ -268,6 +272,8 @@ ping www.arjuna.B03.com
 ### Result
 
 ![image]()
+
+**Kendala:** Tidak ada kendala didalam mengerjakan nomor ini.
 
 ## Soal 4
 > Kemudian, karena terdapat beberapa web yang harus di-deploy, buatlah subdomain parikesit.abimanyu.yyy.com yang diatur DNS-nya di Yudhistira dan mengarah ke Abimanyu.
@@ -287,6 +293,8 @@ ping www.arjuna.B03.com
 
 ![image]()
 
+**Kendala:** Tidak ada kendala didalam mengerjakan nomor ini.
+
 ## Soal 5
 > Buat juga reverse domain untuk domain utama.
 
@@ -303,6 +311,8 @@ ping www.arjuna.B03.com
 ### Result
 
 ![image]()
+
+**Kendala:** Tidak ada kendala didalam mengerjakan nomor ini.
 
 ## Soal 6
 > Agar dapat tetap dihubungi ketika DNS Server Yudhistira bermasalah, buat juga Werkudara sebagai DNS Slave untuk domain utama.
@@ -326,6 +336,8 @@ ping www.arjuna.B03.com
 
 ![image]()
 
+**Kendala:** Tidak ada kendala didalam mengerjakan nomor ini.
+
 ## Soal 7
 > Seperti yang kita tahu karena banyak sekali informasi yang harus diterima, buatlah subdomain khusus untuk perang yaitu baratayuda.abimanyu.yyy.com dengan alias www.baratayuda.abimanyu.yyy.com yang didelegasikan dari Yudhistira ke Werkudara dengan IP menuju ke Abimanyu dalam folder Baratayuda
 
@@ -342,6 +354,8 @@ ping www.arjuna.B03.com
 ### Result
 
 ![image]()
+
+**Kendala:** Tidak ada kendala didalam mengerjakan nomor ini.
 
 ## Soal 8
 > Untuk informasi yang lebih spesifik mengenai Ranjapan Baratayuda, buatlah subdomain melalui Werkudara dengan akses rjp.baratayuda.abimanyu.yyy.com dengan alias www.rjp.baratayuda.abimanyu.yyy.com yang mengarah ke Abimanyu.
@@ -382,6 +396,8 @@ service bind9 restart
 Pada client Nakula, jalankan `ping.www.baratayuda.abimanyu.B03.com`
 
 ![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no8/image.png)
+
+**Kendala:** Tidak ada kendala didalam mengerjakan nomor ini.
 
 ## Soal 9
 > Arjuna merupakan suatu Load Balancer Nginx dengan tiga worker yaitu Prabakusuma, Abimanyu, dan Wisanggeni. Lakukan deployment pada masing-masing worker
@@ -494,6 +510,8 @@ Lalu testing dengan menjalankan `lynx http://arjuna.B03.com`
 - Wisanggeni
 
   ![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no9/image-2.png)
+
+**Kendala:** Tidak ada kendala didalam mengerjakan nomor ini.
 
 ## Soal 10
 > Kemudian gunakan algoritma Round Robin untuk Load Balancer pada Arjuna. Gunakan server_name pada soal nomor 1. Untuk melakukan pengecekan akses alamat web tersebut kemudian pastikan worker yang digunakan untuk menangani permintaan akan berganti ganti secara acak. Untuk webserver di masing-masing worker wajib berjalan di port 8001-8003. Contoh (Prabakusuma:8001, Abimanyu:8002, Wisanggeni:8003)
@@ -650,6 +668,8 @@ Pada client Nakula, pastikan pada `/etc/resolv.conf` terdapat nameserver yudhist
 - Testing dengan menjalankan `lynx http://arjuna.B03.com:8003`
 ![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no10/image-3.png)
 
+**Kendala:** Tidak ada kendala didalam mengerjakan nomor ini.
+
 ## Soal 11
 > Selain menggunakan Nginx, lakukan konfigurasi Apache Web Server pada worker Abimanyu dengan web server www.abimanyu.yyy.com. Pertama dibutuhkan web server dengan DocumentRoot pada /var/www/abimanyu.yyy
 
@@ -691,6 +711,8 @@ service apache2 restart
 Pada client Nakula, testing dengan menjalankan `lynx http://abimanyu.B03.com/index.php/home`
 ![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no11/image-6.png)
 
+**Kendala:** Tidak ada kendala didalam mengerjakan nomor ini.
+
 ## Soal 12
 > Setelah itu ubahlah agar url www.abimanyu.yyy.com/index.php/home menjadi www.abimanyu.yyy.com/home.
 **Abimanyu**
@@ -717,6 +739,8 @@ Pada client Nakula, testing dengan menjalankan `lynx http://abimanyu.B03.com/ind
 Pada client Nakula, testing dengan menjalankan
 `lynx http://abimanyu.B03.com/home`
 ![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no12/image-6.png)
+
+**Kendala:** Tidak ada kendala didalam mengerjakan nomor ini.
 
 ## Soal 13
 > Selain itu, pada subdomain www.parikesit.abimanyu.yyy.com, DocumentRoot disimpan pada /var/www/parikesit.abimanyu.yyy
@@ -757,6 +781,8 @@ service apache2 restart
 ### Testing
 Pada client Nakula, testing dengan menjalankan `lynx http://parikesit.abimanyu.B03.com/index.php/home`
 ![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no13/image-7.png)
+
+**Kendala:** Tidak ada kendala didalam mengerjakan nomor ini.
 
 ## Soal 14
 > Pada subdomain tersebut folder /public hanya dapat melakukan directory listing sedangkan pada folder /secret tidak dapat diakses (403 Forbidden)
@@ -800,6 +826,8 @@ Pada client Nakula, testing dengan menjalankan:
   ![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no14/image-9.png)
   ![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no14/image-10.png)
 
+**Kendala:** Tidak ada kendala didalam mengerjakan nomor ini.
+
 ## Soal 15
 > Buatlah kustomisasi halaman error pada folder /error untuk mengganti error kode pada Apache. Error kode yang perlu diganti adalah 404 Not Found dan 403 Forbidden.
 **Abimanyu**
@@ -842,11 +870,13 @@ Pada client Nakula, testing dengan menjalankan:
 ![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no15/image-13.png)
 ![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no15/image-14.png)
 
+**Kendala:** Tidak ada kendala didalam mengerjakan nomor ini.
+
 ## Soal 16
 > Buatlah suatu konfigurasi virtual host agar file asset www.parikesit.abimanyu.yyy.com/public/js menjadi www.parikesit.abimanyu.yyy.com/js 
 
 **Abimanyu**
-Sama seperti nomor 21, pada file `parikesit.abimanyu.B03.com.conf`, tambahkan alias untuk path `/var/www/parikesit.abimanyu.B03/public/js`.
+Sama seperti nomor 12, pada file `parikesit.abimanyu.B03.com.conf`, tambahkan alias untuk path `/var/www/parikesit.abimanyu.B03/public/js`.
 ### Script
 ```shell
 echo '<VirtualHost *:80>
@@ -879,6 +909,8 @@ service apache2 restart
 ### Testing
 Pada client Nakula, testing dengan menjalankan `lynx parikesit.abimanyu.B03.com/js`
 ![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no16/image-15.png)
+
+**Kendala:** Tidak ada kendala didalam mengerjakan nomor ini.
 
 ## Soal 17
 > Agar aman, buatlah konfigurasi agar www.rjp.baratayuda.abimanyu.yyy.com hanya dapat diakses melalui port 14000 dan 14400.
@@ -918,6 +950,8 @@ Pada client Nakula, testing dengan menjalankan:
 ![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no17/image-17.png)
 - Saat tidak menggunakan kedua port di atas
 ![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no17/image-18.png)
+
+**Kendala:** Tidak ada kendala didalam mengerjakan nomor ini.
 
 ## Soal 18
 > Untuk mengaksesnya buatlah autentikasi username berupa “Wayang” dan password “baratayudayyy” dengan yyy merupakan kode kelompok. Letakkan DocumentRoot pada /var/www/rjp.baratayuda.abimanyu.yyy.
@@ -965,6 +999,8 @@ Lalu pada client Nakula:
 - Autentikasi sukses
 ![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no18/image-23.png)
 
+**Kendala:** Tidak ada kendala didalam mengerjakan nomor ini.
+
 ## Soal 19
 > Buatlah agar setiap kali mengakses IP dari Abimanyu akan secara otomatis dialihkan ke www.abimanyu.yyy.com (alias)
 
@@ -986,6 +1022,8 @@ Config test
 
 ![image]()
 
+**Kendala:** Tidak ada kendala didalam mengerjakan nomor ini.
+
 ## Soal 20
 > Karena website www.parikesit.abimanyu.yyy.com semakin banyak pengunjung dan banyak gambar gambar random, maka ubahlah request gambar yang memiliki substring “abimanyu” akan diarahkan menuju abimanyu.png.
 
@@ -1004,3 +1042,5 @@ Config test
 ![image]()
 
 ![image]()
+
+**Kendala:** Nomor ini tidak dapat diselesaikan pada masa praktikum, sehingga diselesaikan pada masa revisi.
