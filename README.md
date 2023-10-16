@@ -170,12 +170,14 @@
 
 ### Script
 **Pada semua Node**
+
 masukkan di dalam .bashrc di root:
 ```
 echo nameserver 192.168.122.1 > `/etc/resolv.conf`
 ```
 
 **Nakula**
+
 Untuk client, nano `/etc/resolv.conf`
 ```
 nameserver 192.168.122.1
@@ -187,7 +189,6 @@ Lalu pada semua node, pastikan sudah bisa menjalankan:
 ```
 ping google.com
 ```
-
 ### Result
 
 ![image](no1/google.png)
