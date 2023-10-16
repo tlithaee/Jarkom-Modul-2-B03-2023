@@ -177,6 +177,7 @@ echo nameserver 192.168.122.1 > /etc/resolv.conf
 ```
 
 **Yudhistira & Werkudara**
+
 Masukkan di dalam .bashrc di root (khusus Yudhistira dan Werkudara):
 ```
 echo nameserver 192.168.122.1 > /etc/resolv.conf
@@ -197,6 +198,7 @@ apt-get install lynx
 ```
 
 **Abimanyu**
+
 Masukkan di dalam .bashrc di root (khusus worker):
 ```
 echo nameserver 192.168.122.1 > /etc/resolv.conf
