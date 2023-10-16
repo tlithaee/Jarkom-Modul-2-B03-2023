@@ -381,7 +381,7 @@ service bind9 restart
 ### Testing
 Pada client Nakula, jalankan `ping.www.baratayuda.abimanyu.B03.com`
 
-![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no%208/image.png)
+![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no8/image.png)
 
 ## Soal 9
 > Arjuna merupakan suatu Load Balancer Nginx dengan tiga worker yaitu Prabakusuma, Abimanyu, dan Wisanggeni. Lakukan deployment pada masing-masing worker
@@ -485,15 +485,15 @@ Lalu testing dengan menjalankan `lynx http://arjuna.B03.com`
 
 - Prabakusuma
 
-  ![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no%209/image-1.png)
+  ![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no9/image-1.png)
 
 - Abimanyu
 
-  ![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no%209/image-0.png)
+  ![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no9/image-0.png)
 
 - Wisanggeni
 
-  ![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no%209/image-2.png)
+  ![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no9/image-2.png)
 
 ## Soal 10
 > Kemudian gunakan algoritma Round Robin untuk Load Balancer pada Arjuna. Gunakan server_name pada soal nomor 1. Untuk melakukan pengecekan akses alamat web tersebut kemudian pastikan worker yang digunakan untuk menangani permintaan akan berganti ganti secara acak. Untuk webserver di masing-masing worker wajib berjalan di port 8001-8003. Contoh (Prabakusuma:8001, Abimanyu:8002, Wisanggeni:8003)
@@ -644,11 +644,11 @@ server {
 Pada client Nakula, pastikan pada `/etc/resolv.conf` terdapat nameserver yudhistira dan werkudara dan install dependencies `apt-get update && apt-get install lynx` (dimasukkan ke .bashrc).
 
 - Testing dengan menjalankan `lynx http://arjuna.B03.com:8001`
-![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no%2010/image-111.png)
+![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no10/image-111.png)
 - Testing dengan menjalankan `lynx http://arjuna.B03.com:8002`
-![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no%2010/image-4.png)
+![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no10/image-4.png)
 - Testing dengan menjalankan `lynx http://arjuna.B03.com:8003`
-![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no%2010/image-3.png)
+![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no10/image-3.png)
 
 ## Soal 11
 > Selain menggunakan Nginx, lakukan konfigurasi Apache Web Server pada worker Abimanyu dengan web server www.abimanyu.yyy.com. Pertama dibutuhkan web server dengan DocumentRoot pada /var/www/abimanyu.yyy
@@ -668,7 +668,7 @@ Pada client Nakula, pastikan pada `/etc/resolv.conf` terdapat nameserver yudhist
   ```
 - Buat directory var/www/abimanyu.B03
 - Untuk mengambil asset dari resource untuk webserver abimanyu.B03.com, digunakan metode git clone dari repository `http.sslVerify=false clone https://github.com/bombshelll/abimanyu.B03.com` yang akan di copy kedalam directory /var/www/abimanyu.B03
-![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no%2011/image-5.png)
+![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no11/image-5.png)
 
 ### Script
 ```
@@ -689,7 +689,7 @@ service apache2 restart
 
 ### Testing
 Pada client Nakula, testing dengan menjalankan `lynx http://abimanyu.B03.com/index.php/home`
-![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no%2011/image-6.png)
+![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no11/image-6.png)
 
 ## Soal 12
 > Setelah itu ubahlah agar url www.abimanyu.yyy.com/index.php/home menjadi www.abimanyu.yyy.com/home.
@@ -716,7 +716,7 @@ Pada client Nakula, testing dengan menjalankan `lynx http://abimanyu.B03.com/ind
 ### Testing
 Pada client Nakula, testing dengan menjalankan
 `lynx http://abimanyu.B03.com/home`
-![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no%2012/image-6.png)
+![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no12/image-6.png)
 
 ## Soal 13
 > Selain itu, pada subdomain www.parikesit.abimanyu.yyy.com, DocumentRoot disimpan pada /var/www/parikesit.abimanyu.yyy
@@ -756,7 +756,7 @@ service apache2 restart
 
 ### Testing
 Pada client Nakula, testing dengan menjalankan `lynx http://parikesit.abimanyu.B03.com/index.php/home`
-![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no%2013/image-7.png)
+![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no13/image-7.png)
 
 ## Soal 14
 > Pada subdomain tersebut folder /public hanya dapat melakukan directory listing sedangkan pada folder /secret tidak dapat diakses (403 Forbidden)
@@ -794,11 +794,11 @@ Jalankan script di bawah ini, dimana untuk directory public, menggunakan `+Index
 Pada client Nakula, testing dengan menjalankan:
 - lynx parikesit.abimanyu.B03.com/public
 
-  ![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no%2014/image-8.png)
+  ![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no14/image-8.png)
 - lynx parikesit.abimanyu.B03.com/secret
 
-  ![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no%2014/image-9.png)
-  ![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no%2014/image-10.png)
+  ![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no14/image-9.png)
+  ![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no14/image-10.png)
 
 ## Soal 15
 > Buatlah kustomisasi halaman error pada folder /error untuk mengganti error kode pada Apache. Error kode yang perlu diganti adalah 404 Not Found dan 403 Forbidden.
@@ -836,11 +836,11 @@ Jalankan script di bawah ini, dimana untuk error dengan kode 404, menggunakan `E
 ### Testing
 Pada client Nakula, testing dengan menjalankan:
 - lynx parikesit.abimanyu.B03.com/asalasalan
-![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no%2015/image-11.png)
-![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no%2015/image-12.png)
+![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no15/image-11.png)
+![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no15/image-12.png)
 - lynx parikesit.abimanyu.B03.com/secret
-![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no%2015/image-13.png)
-![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no%2015/image-14.png)
+![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no15/image-13.png)
+![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no15/image-14.png)
 
 ## Soal 16
 > Buatlah suatu konfigurasi virtual host agar file asset www.parikesit.abimanyu.yyy.com/public/js menjadi www.parikesit.abimanyu.yyy.com/js 
@@ -878,7 +878,7 @@ service apache2 restart
 ```
 ### Testing
 Pada client Nakula, testing dengan menjalankan `lynx parikesit.abimanyu.B03.com/js`
-![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no%2016/image-15.png)
+![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no16/image-15.png)
 
 ## Soal 17
 > Agar aman, buatlah konfigurasi agar www.rjp.baratayuda.abimanyu.yyy.com hanya dapat diakses melalui port 14000 dan 14400.
@@ -913,11 +913,11 @@ Sama seperti pada nomor-nomor sebelumnya, namun pada portnya, tidak digunakan 80
 ### Testing
 Pada client Nakula, testing dengan menjalankan:
 - lynx rjp.baratayuda.abimanyu.B03.com:14000
-![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no%2017/image-16.png)
+![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no17/image-16.png)
 - lynx rjp.baratayuda.abimanyu.B03.com:14400
-![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no%2017/image-17.png)
+![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no17/image-17.png)
 - Saat tidak menggunakan kedua port di atas
-![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no%2017/image-18.png)
+![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no17/image-18.png)
 
 ## Soal 18
 > Untuk mengaksesnya buatlah autentikasi username berupa “Wayang” dan password “baratayudayyy” dengan yyy merupakan kode kelompok. Letakkan DocumentRoot pada /var/www/rjp.baratayuda.abimanyu.yyy.
@@ -953,17 +953,17 @@ Pada file `rjp.baratayuda.abimanyu.B03.com.conf` tambahkan seperti script di baw
 ### Testing
 Pada Abimanyu, setup username dan password dengan menjalankan `htpasswd -c /etc/apache2/.htpasswd Wayang` dan set password menjadi `baratayudaB03`
 
-![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no%2018/image-19.png)
+![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no18/image-19.png)
 
 Lalu pada client Nakula:
 - Jalankan lynx rjp.baratayuda.abimanyu.B03.com:14400 (atau tanpa port jika belum menjalankan nomor 17)
-![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no%2018/image-20.png)
+![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no18/image-20.png)
 - Memasukkan username
-![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no%2018/image-21.png)
+![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no18/image-21.png)
 - Memasukkan password
-![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no%2018/image-22.png)
+![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no18/image-22.png)
 - Autentikasi sukses
-![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no%2018/image-23.png)
+![Alt text](https://github.com/tlithaee/Jarkom-Modul-2-B03-2023/raw/main/no18/image-23.png)
 
 ## Soal 19
 > Buatlah agar setiap kali mengakses IP dari Abimanyu akan secara otomatis dialihkan ke www.abimanyu.yyy.com (alias)
