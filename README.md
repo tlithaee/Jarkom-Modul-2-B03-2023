@@ -171,26 +171,46 @@
 ### Script
 **Pada semua Node**
 
-masukkan di dalam .bashrc di root:
+Masukkan di dalam .bashrc di root:
 ```
-echo nameserver 192.168.122.1 > `/etc/resolv.conf`
+echo nameserver 192.168.122.1 > /etc/resolv.conf
+```
+
+**Yudhistira & Werkudara**
+Masukkan di dalam .bashrc di root (khusus Yudhistira dan Werkudara):
+```
+echo nameserver 192.168.122.1 > /etc/resolv.conf
+apt-get update
+apt-get install bind9 -y
 ```
 
 **Nakula**
 
-Untuk client, nano `/etc/resolv.conf`
+Masukkan di dalam .bashrc di root (khusus client):
 ```
-nameserver 192.168.122.1
+echo 'nameserver 192.168.122.1 
 nameserver 10.10.2.4 #IP Yudhistira
 nameserver 10.10.2.3 #IP Werkudara
+' > /etc/resolv.conf
+apt-get update
+apt-get install lynx
 ```
 
+**Abimanyu**
+Masukkan di dalam .bashrc di root (khusus worker):
+```
+echo nameserver 192.168.122.1 > /etc/resolv.conf
+apt-get update && apt install nginx php php-fpm -y
+apt-get install apache2
+apt-get install lynx
+apt-get install libapache2-mod-php7.0
+```
+
+### Testing
 Lalu pada semua node, pastikan sudah bisa menjalankan:
 ```
 ping google.com
 ```
-### Result
-
 ![image](no1/google.png)
 
 **Kendala:** Tidak ada kendala didalam mengerjakan nomor ini.
