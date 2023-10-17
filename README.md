@@ -265,7 +265,7 @@ ping www.arjuna.B03.com
 
 ### Result
 
-![image]()
+![image](no2/no2.png)
 
 
 **Kendala:** Tidak ada kendala didalam mengerjakan nomor ini.
@@ -276,16 +276,58 @@ ping www.arjuna.B03.com
 ### Script
 
 **Yudhistira**
+1. Dalam `abimanyu.B03.com`
 ```
+;
+; BIND data file for local loopback interface
+;
+$TTL    604800
+@       IN      SOA     abimanyu.B03.com. root.abimanyu.B03.com. (
+                        2023100901      ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+@       IN      NS      abimanyu.B03.com.
+@       IN      A       10.10.1.4        ; IP abimanyu karena point ke abimanyu
+www     IN      CNAME   abimanyu.B03.com.
+@       IN	    AAAA    ::1
 ```
 
-**Abimanyu**
+2. nano `named.conf.local` yang berada di root agar tidak hilang
 ```
+zone “abimanyu.B03.com" {
+    type master;
+    file "/etc/bind/abimanyu/abimanyu.B03.com";
+};
+```
+
+3. No3.sh
+```
+#!bin/bash
+
+echo '
+zone "abimanyu.B03.com" {
+    type master;
+    file "/etc/bind/abimanyu/abimanyu.B03.com";
+};' >> /etc/bind/named.conf.local
+
+mkdir /etc/bind/abimanyu
+cp abimanyu.B03.com /etc/bind/abimanyu/abimanyu.B03.com
+
+service bind9 restart
+```
+
+**Nakula**
+```
+ping abimanyu.B03
+ping www.abimanyu.B03.com
 ```
 
 ### Result
 
-![image]()
+![image](no3/no3.png)
 
 **Kendala:** Tidak ada kendala didalam mengerjakan nomor ini.
 
