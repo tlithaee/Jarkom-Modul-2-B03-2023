@@ -1311,14 +1311,66 @@ lynx 10.10.1.4
 
 ### Script
 **Abimanyu**
+1. Pada `htaccess`
 ```
+RewriteEngine On
+RewriteCond %{REQUEST_URI} ^/public/images/(.*)abimanyu(.*)
+RewriteCond %{REQUEST_URI} !/public/images/abimanyu.png
+RewriteRule abimanyu http://parikesit.abimanyu.B03.com/public/images/abimanyu.png$1 [L,R=301]
+```
+
+2. Pada `parikesit.abimanyu.com` di root
+```
+<VirtualHost *:80>
+  ServerAdmin webmaster@localhost
+  DocumentRoot /var/www/parikesit.abimanyu.B03
+
+  ServerName parikesit.abimanyu.B03.com
+  ServerAlias www.parikesit.abimanyu.B03.com
+
+  <Directory /var/www/parikesit.abimanyu.B03/public>
+          Options +Indexes
+  </Directory>
+
+  <Directory /var/www/parikesit.abimanyu.B03/secret>
+          Options -Indexes
+  </Directory>
+
+  <Directory /var/www/parikesit.abimanyu.B03>
+          Options +FollowSymLinks -Multiviews
+          AllowOverride All
+  </Directory>
+
+  Alias "/public" "/var/www/parikesit.abimanyu.B03/public"
+  Alias "/secret" "/var/www/parikesit.abimanyu.B03/secret"
+  Alias "/js" "/var/www/parikesit.abimanyu.B03/public/js"
+
+  ErrorDocument 404 /error/404.html
+  ErrorDocument 403 /error/403.html
+
+  ErrorLog ${APACHE_LOG_DIR}/error.log
+  CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+```
+
+3. No20.sh
+```
+#!bin/bash
+
+a2enmod rewrite
+
+cp htaccess /var/www/parikesit.abimanyu.B03/.htaccess
+
+cp parikesit.abimanyu.B03.conf /etc/apache2/sites-available/parikesit.abimanyu.B03.conf
+
+service apache2 restart
 ```
 
 **Nakula**
 ```
-
+lynx parikesit.abimanyu.B03.com/public/images/cobaabimanyu
 ```
-### Result
-![image]()
+<!-- ### Result -->
+<!-- ![image]() -->
 
-**Kendala:** Nomor ini tidak dapat diselesaikan pada masa praktikum, sehingga diselesaikan pada masa revisi.
+**Kendala:** Nomor ini tidak dapat diselesaikan pada masa praktikum, pada masa revisi juga masih error.
