@@ -1226,21 +1226,37 @@ Lalu pada client Nakula:
 
 ### Script
 **Abimanyu**
+1. Pada folder `abimanyu-redirect.conf `
 ```
+<VirtualHost *:80>
+    ServerAdmin webmaster@abimanyu.B03.com
+    DocumentRoot /var/www/abimanyu.B03
+
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+    Redirect / http://www.abimanyu.B03.com/
+</VirtualHost>
 ```
 
-Config test
+2. No19.sh
 ```
+#!bin/bash
+cp abimanyu-redirect.conf /etc/apache2/sites-available/000-default.conf
+a2ensite abimanyu-redirect.conf
+apache2ctl configtest
+service apache2 restart
 ```
 
-**Client (Sadewa)**
+**Nakula**
 ```
+lynx 10.10.1.4
 ```
 
 ### Result
-![image]()
+![image](no19/no19.png)
 
-![image]()
+![image](no19/no19_1.png)
 
 **Kendala:** Tidak ada kendala didalam mengerjakan nomor ini.
 
