@@ -385,11 +385,59 @@ ping www.parikesit.abimanyu.B03.com
 ### Script
 
 **Yudhistira**
+1. Copy `db.local` ke root
 ```
+cp /etc/bind/db.local 2.10.10.in-addr.arpa
 ```
 
-**Abimanyu / Client yang lain**
+2. Lalu didalamnya edit seperti ini
 ```
+;
+; BIND data file for local loopback interface
+;
+$TTL    604800
+@       IN      SOA     abimanyu.B03.com. root.abimanyu.B03.com. (
+                        2023100901      ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+2.10.10.in-addr.arpa.	IN	NS	abimanyu.B03.com.
+4				IN	PTR	abimanyu.B03.com.
+```
+
+2. nano `named.conf.local` yang berada di root agar tidak hilang
+```
+zone "2.10.10.in-addr.arpa." {
+    type master;
+    file "/etc/bind/abimanyu/2.10.10.in-addr.arpa";
+};
+```
+
+3. Copy `2.10.10.in-addr.arpa.` dari root ke dalam folder 
+```
+cp 2.10.10.in-addr.arpa /etc/bind/abimanyu/2.10.10.in-addr.arpa
+```
+
+
+4. No5.sh
+```
+#!bin/bash
+
+echo ‘
+
+zone "2.10.10.in-addr.arpa." {
+    type master;
+    file "/etc/bind/abimanyu/2.10.10.in-addr.arpa.";
+};’>> /etc/bind/named.conf.local
+cp 2.10.10.in-addr.arpa /etc/bind/abimanyu/2.10.10.in-addr.arpa
+service bind9 restart
+```
+
+**Nakula**
+```
+host -t PTR 10.10.2.4
 ```
 
 ### Result
@@ -1268,7 +1316,7 @@ lynx 10.10.1.4
 ```
 ```
 
-**Client (Sadewa)**
+**Nakula**
 ```
 
 ```
