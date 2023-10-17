@@ -484,17 +484,96 @@ ping www.abimanyu.B03.com
 
 ### Script
 **Yudhistira**
-
+1. Dalam `abimanyu.B03.com`
 ```
+;
+; BIND data file for local loopback interface
+;
+$TTL    604800
+@               IN      SOA     abimanyu.B03.com. root.abimanyu.B03.com. (
+                        2023100901      ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+@               IN      NS      abimanyu.B03.com.
+@               IN      A       10.10.1.4        ; IP abimanyu karena point ke abimanyu
+www             IN      CNAME   abimanyu.B03.com.
+parikesit       IN      A       10.10.1.4        ; IP abimanyu
+www.parikesit   IN      CNAME   parikesit.abimanyu.B03.com.
+baratayuda      IN      A       10.10.2.3        ; IP werkudara
+www.baratayuda  IN      CNAME   baratayuda.abimanyu.NB03.com.
+@               IN	    AAAA    ::1
+```
+
+2. nano `named.conf.options` yang berada di root agar tidak hilang
+```
+# dnssec-validation auto
+allow-query{any;}; 
+```
+
+3. nano `named.conf.local` yang berada di root agar tidak hilang
+```
+zone “abimanyu.B03.com" {
+    	type master;
+	  	allow-transfer { 10.10.2.3; };
+    	file "/etc/bind/abimanyu/abimanyu.B03.com";
+};
+```
+
+4. No7.sh
+```
+#!bin/bash
+
+cp abimanyu.B03.com /etc/bind/abimanyu/abimanyu.B03.com
+cp named.conf.options /etc/bind/named.conf.options
+cp named.conf.local /etc/bind/named.conf.local
+
+service bind9 restart
 ```
 
 **Werkudara**
+1. nano `named.conf.options` yang berada di root agar tidak hilang
 ```
+# dnssec-validation auto
+allow-query{any;}; 
+```
+
+2. nano `named.conf.local` yang berada di root agar tidak hilang
+```
+zone “baratayuda.abimanyu.B03.com" {
+    	type master;
+	  	allow-transfer { 10.10.2.3; };
+    	file "/etc/bind/baratayuda/baratayuda.abimanyu.B03.com";
+};
+```
+
+3. No7.sh
+```
+#!bin/bash
+
+echo '
+zone "baratayuda.abimanyu.B03.com" {
+    type master;
+    file "/etc/bind/baratayuda/baratayuda.abimanyu.B03.com";
+};' >> /etc/bind/named.conf.local
+
+mkdir /etc/bind/baratayuda
+cp /etc/bind/db.local /etc/bind/baratayuda/baratayuda.abimanyu.B03.com
+
+service bind9 restart
+```
+
+**Nakula**
+```
+ping baratayuda.abimanyu.B03.com
+ping www.baratayuda.abimanyu.B03.com
 ```
 
 ### Result
 
-![image]()
+![image](no7/no7.png)
 
 **Kendala:** Tidak ada kendala didalam mengerjakan nomor ini.
 
