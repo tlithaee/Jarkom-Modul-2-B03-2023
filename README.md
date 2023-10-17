@@ -375,7 +375,7 @@ ping www.parikesit.abimanyu.B03.com
 
 ### Result
 
-![image]()
+![image](no4/no4.png)
 
 **Kendala:** Tidak ada kendala didalam mengerjakan nomor ini.
 
@@ -442,7 +442,7 @@ host -t PTR 10.10.2.4
 
 ### Result
 
-![image]()
+![image](no5/no5.png)
 
 **Kendala:** Tidak ada kendala didalam mengerjakan nomor ini.
 
@@ -521,9 +521,7 @@ ping www.abimanyu.B03.com
 
 ### Result
 
-![image]()
-
-![image]()
+![image](no6/no6.png)
 
 **Kendala:** Tidak ada kendala didalam mengerjakan nomor ini.
 
@@ -1305,7 +1303,7 @@ lynx 10.10.1.4
 ![image](no19/no19.png)
 
 ![image](no19/no19_1.png)
-
+  
 **Kendala:** Tidak ada kendala didalam mengerjakan nomor ini.
 
 ## Soal 20
@@ -1321,10 +1319,6 @@ lynx 10.10.1.4
 
 ```
 ### Result
-![image]()
-
-![image]()
-
 ![image]()
 
 **Kendala:** Nomor ini tidak dapat diselesaikan pada masa praktikum, sehingga diselesaikan pada masa revisi.
