@@ -321,7 +321,7 @@ service bind9 restart
 
 **Nakula**
 ```
-ping abimanyu.B03
+ping abimanyu.B03.com
 ping www.abimanyu.B03.com
 ```
 
@@ -338,11 +338,39 @@ ping www.abimanyu.B03.com
 
 **Yudhistira**
 
+1. Dalam `abimanyu.B03.com`
 ```
+;
+; BIND data file for local loopback interface
+;
+$TTL    604800
+@             IN      SOA     abimanyu.B03.com. root.abimanyu.B03.com. (
+                        2023100901      ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+@             IN      NS      abimanyu.B03.com.
+@             IN      A       10.10.1.4        ; IP abimanyu karena point ke abimanyu
+www           IN      CNAME   abimanyu.B03.com.
+parikesit     IN      A       10.10.1.4        ; IP abimanyu
+www.parikesit IN      CNAME   parikesit.abimanyu.B03.com.
+@             IN	    AAAA    ::1
 ```
 
-**Abimanyu**
+2. No4.sh
 ```
+#!bin/bash
+
+cp abimanyu.B03.com /etc/bind/abimanyu/abimanyu.B03.com
+service bind9 restart
+```
+
+**Nakula**
+```
+ping parikesit.abimanyu.B03.com
+ping www.parikesit.abimanyu.B03.com
 ```
 
 ### Result
@@ -375,15 +403,72 @@ ping www.abimanyu.B03.com
 
 ### Script
 **Yudhistira**
+1. Dalam `arjuna.B03.com`
 ```
+;
+; BIND data file for local loopback interface
+;
+$TTL    604800
+@       IN      SOA     arjuna.B03.com. root.arjuna.B03.com. (
+                        2023100901      ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+@       IN      NS      arjuna.B03.com.
+@       IN      A       10.10.2.2        ; IP arjuna karena point ke arjuna
+www     IN      CNAME   arjuna.B03.com.
+@       IN	    AAAA    ::1
 ```
 
+2. nano `slave_named.conf.local` yang berada di root agar tidak hilang
+```
+zone “abimanyu.B03.com" {
+    	type master;
+	notify yes;
+	also-notify { 10.10.2.3; };
+	allow-transfer { 10.10.2.3; };
+    	file "/etc/bind/abimanyu/abimanyu.B03.com";
+};
+```
+
+3. No2.sh
+```
+#!bin/bash
+
+cp slave_named.conf.local /etc/bind/named.conf.local
+service bind9 restart
+```
 **Werkudara (DNS Slave)**
+1. No6.sh
 ```
+#!bin/bash
+
+echo ‘
+zone "abimanyu.B03.com" {
+    type slave;
+    masters { 10.10.2.4; }; // IP Yudhistira
+    file "/var/lib/bind/abimanyu.B03.com";
+};’ >> /etc/bind/named.conf.local
+
+service bind9 restart
 ```
 
-**Abimanyu**
+**Nakula**
+
+1. Dicek  IP yudhistira dan werkudara di `/etc/resolv.conf`
 ```
+# nameserver 192.168.122.1
+nameserver 10.10.2.4
+nameserver 10.10.2.3
+```
+
+2. Lalu ping kalau berhasil ke 10.10.1.4 (ip point abimanyu) walaupun yudhistira dah stop
+
+```
+ping abimanyu.B03.com
+ping www.abimanyu.B03.com
 ```
 
 ### Result
